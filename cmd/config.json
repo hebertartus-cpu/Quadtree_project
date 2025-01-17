@@ -1,0 +1,24 @@
+{
+    "DebugMode": false,
+    "NumTileX": 10,
+    "NumTileY": 10,
+    "TileSize": 16,
+    "NumCharacterAnimImages": 4,
+    "NumFramePerCharacterAnimImage": 5,
+    "NumTileForDebug": 6,
+    "CameraMode": 1,
+    "FloorKind": 2,
+    "FloorFile": "../floor-files/textureeau",
+    
+    "CoInit": [0,0],
+
+    "RandomFixe": [20,20],
+    "SaveName":"",
+    "Animation": 1,
+    "TPactive": 1,
+    "ForbiddenFloor": -1,
+    "CamBloque": 1,
+    "RoundEarth":1,
+    "Zoom": 1
+
+}

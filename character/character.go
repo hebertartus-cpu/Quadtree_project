@@ -39,6 +39,8 @@ type Character struct {
 	Valeur_posY2        int
 	Typesol2            int
 	tp_instant          int
+	
 	Moving				*bool
-	Shift				*int
+	Tp_roundX			int
+	Tp_roundY			int
 }

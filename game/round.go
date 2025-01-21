@@ -14,10 +14,9 @@ func (g *Game) RoundEarth() {
 		if g.character.Y == 0 {
 			if !*g.character.Moving {
 				*g.character.Moving = true
-				//annule l'animation du personnage
-				*g.character.Shift = 16
-				//téléporte le personnage
-				g.character.Y = g.floor.QuadtreeContent.Height() - 1
+				
+				//enregsitre les coordonnées où téléporter le personnage
+				g.character.Tp_roundY = g.floor.QuadtreeContent.Height() - 1
 			}
 		}
 	}
@@ -26,10 +25,9 @@ func (g *Game) RoundEarth() {
 		if g.character.Y == g.floor.QuadtreeContent.Height()-1 {
 			if !*g.character.Moving {
 				*g.character.Moving = true
-				//annule l'animation du personnage
-				*g.character.Shift = 16
-				//téléporte le personnage
-				g.character.Y = 0
+				
+				//enregsitre les coordonnées où téléporter le personnage
+				g.character.Tp_roundY = 0
 			}
 		}
 	}
@@ -38,10 +36,9 @@ func (g *Game) RoundEarth() {
 		if g.character.X == g.floor.QuadtreeContent.Width()-1 {
 			if !*g.character.Moving {
 				*g.character.Moving = true
-				//annule l'animation du personnage
-				*g.character.Shift = 16
-				//téléporte le personnage
-				g.character.X = 0
+				
+				//enregsitre les coordonnées où téléporter le personnage
+				g.character.Tp_roundX = 0
 			}
 		}
 	}
@@ -50,10 +47,9 @@ func (g *Game) RoundEarth() {
 		if g.character.X == 0 {
 			if !*g.character.Moving {
 				*g.character.Moving = true
-				//annule l'animation du personnage
-				*g.character.Shift = 16
-				//téléporte le personnage
-				g.character.X = g.floor.QuadtreeContent.Width() - 1
+				
+				//enregsitre les coordonnées où téléporter le personnage
+				g.character.Tp_roundX = g.floor.QuadtreeContent.Width() - 1
 			}
 		}
 	}

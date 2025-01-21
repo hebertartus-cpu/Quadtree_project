@@ -10,5 +10,6 @@ func (c *Character) Init(floorWidth, floorHeight int) {
 	c.Y = floorHeight / 2
 
 	c.Moving = &(c.moving)
-	c.Shift = &(c.shift)
+	c.Tp_roundX = 1
+	c.Tp_roundY = 1
 }

@@ -12,14 +12,14 @@
     
     "CoInit": [0,0],
 
-    "RandomFixe": [],
+    "RandomFixe": [10, 10],
     "SaveName":"",
     "Animation": 1,
     "TPactive": 1,
     "ForbiddenFloor": -1,
     "CamBloque": 0,
-    "RoundEarth":0,
+    "RoundEarth":1,
     "Zoom": 0,
-    "InfinitRandom": [10, 10]
+    "InfinitRandom": []
 
 }

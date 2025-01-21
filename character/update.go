@@ -52,6 +52,18 @@ func (c *Character) Update(blocking [4]bool) {
 				c.xInc = 0
 				c.yInc = 0
 				c.tp_instant = 0
+
+				//dans le cadre de l'extention Terre ronde
+				//téléporte le joueur au bonnes coordonnées si nécessaire
+				if c.Tp_roundX != 1 {
+
+					c.X = c.Tp_roundX
+					c.Tp_roundX = 1
+				} else if c.Tp_roundY != 1 {
+
+					c.Y = c.Tp_roundY
+					c.Tp_roundY = 1
+				}
 			}
 		}
 	}

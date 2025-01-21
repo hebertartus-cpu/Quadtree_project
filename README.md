@@ -90,6 +90,6 @@ Configuration: configuration.go
 Floor: init.go, draw.go
 Quadtree: quadtree.go, get.go
 
-Toutes les extentions ajoute au moins une ligne dans le fichier cmd.json et dans la structure Configuration du fichier Configuration.configuration.go.
+Toutes les extentions ajoutent au moins une ligne dans le fichier cmd.json et dans la structure Configuration du fichier Configuration.configuration.go.
 Certaines des extentions utilisent des fonctions ou méthodes déjà codées.
 Par ailleurs, le fichier quadtree.modifquad.go est utilisé dans plusieurs extention, et n'est pas attibuer à une seul d'entre elle. Son utilisation n'est donc pas précisée ci-dessus.

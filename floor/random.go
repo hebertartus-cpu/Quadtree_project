@@ -7,7 +7,7 @@ import (
 
 //Dans le cadre de l'extention Génértion terrain aléatoire
 //génère un tableu de tableau de taille (x, y) remplie de cases aléatoires
-func random_gene(x, y int) [][]int {
+func Random_gene(x, y int) [][]int {
 	if x <= 0 || y <= 0 {
 		return [][]int{}
 

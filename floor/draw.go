@@ -14,7 +14,8 @@ func (f Floor) Draw(screen *ebiten.Image) {
 
 	for y := range f.content {
 		for x := range f.content[y] {
-			if f.content[y][x] != -1 {
+			//!= -3 : empèche les bugs pour l'extention Monde infini avec Animation des décors
+			if f.content[y][x] != -1 && f.content[y][x] != -3 {
 				op := &ebiten.DrawImageOptions{}
 				op.GeoM.Translate(float64(x*configuration.Global.TileSize), float64(y*configuration.Global.TileSize))
 

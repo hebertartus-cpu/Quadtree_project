@@ -39,11 +39,20 @@ func (f *Floor) Init() {
 
 	case QuadTreeFloor:
 
-		//cas où il faut générer aléatoirement el terrain
-		if len(configuration.Global.RandomFixe) == 2 {
+		//dans le cadre de l'extention Monde infinie
+		//ne s'active que si les extentions Camera bloqué et Terre Ronde ne sont pas actives
+		if len(configuration.Global.InfinitRandom) == 2 && configuration.Global.CamBloque != 1 && configuration.Global.RoundEarth != 1 && configuration.Global.Zoom == 0 {
+
+			f.quadtreeContent = quadtree.MakeFromArray(Random_gene(configuration.Global.InfinitRandom[0], configuration.Global.InfinitRandom[1]))
+			f.quadtreeContent.MinX = 0
+			f.quadtreeContent.MinY = 0
+
+		//dans le cadre de l'extention Random Fixe
+		//cas où il faut générer aléatoirement un terrain fini
+		} else if len(configuration.Global.RandomFixe) == 2 {
 
 			//enregistre le tableau généré pour éventuellement le sauvgarder dans un fichier
-			temp := random_gene(configuration.Global.RandomFixe[0], configuration.Global.RandomFixe[1])
+			temp := Random_gene(configuration.Global.RandomFixe[0], configuration.Global.RandomFixe[1])
 
 			//si l'extention de sauvegarde est acitve
 			if len(configuration.Global.SaveName) != 0 {

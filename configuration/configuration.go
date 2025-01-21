@@ -55,6 +55,7 @@ type Configuration struct {
 	CamBloque					  int
 	RoundEarth					  int
 	Zoom						  int
+	InfinitRandom  				  []int
 
 	ScreenWidth, ScreenHeight            int `json:"-"`
 	ScreenCenterTileX, ScreenCenterTileY int `json:"-"`
@@ -87,6 +88,16 @@ func Load(configurationFileName string) {
 // setComputedFields se charge de remplir les champs calculés
 // de la configuration à partir des autres champs.
 func setComputedFields() {
+
+	//dans le cadre de l'extention Monde Infinie
+	//fait en sorte que la taille de la c&méra soit la même que celle de la base du Monde infinie
+	//si les extention non compatible ne sont pas avtives
+	if len(Global.InfinitRandom) == 2 && Global.CamBloque != 1 && Global.RoundEarth != 1 && Global.Zoom != 1 {
+
+		Global.NumTileX = Global.InfinitRandom[0]
+		Global.NumTileY = Global.InfinitRandom[1]
+	}
+
 	Global.ScreenWidth = Global.NumTileX * Global.TileSize
 	Global.ScreenHeight = Global.NumTileY * Global.TileSize
 	Global.ScreenCenterTileX = Global.NumTileX / 2

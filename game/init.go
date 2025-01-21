@@ -12,6 +12,7 @@ func (g *Game) Init() {
 	g.character.Init(g.floor.GetWidth(), g.floor.GetHeight())
 
 	//permet de faire apparaitre le joueur à des coordonnées variables
+	//si InfinitRandom également remplie, n'est pas pris en compte
 	if len(configuration.Global.CoInit) == 2 {
 		// évite de faire spawer le joueur à des valeurs négatives dans CoInit, fait spawn en 0,0 si condition non respectée
 		if configuration.Global.CoInit[0] > -1 && configuration.Global.CoInit[1] > -1 {
@@ -22,6 +23,14 @@ func (g *Game) Init() {
 			}
 
 		}
+	}
+
+	//dans le cadre de l'extention Monde Infinie
+	//permet de faire apparaitre le joureur au centre du terain
+	if len(configuration.Global.InfinitRandom) == 2 {
+
+		g.character.X = configuration.Global.InfinitRandom[0]/2
+		g.character.Y = configuration.Global.InfinitRandom[1]/2
 
 	}
 

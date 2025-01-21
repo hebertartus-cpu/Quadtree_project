@@ -13,6 +13,8 @@ import (
 type Quadtree struct {
 	width, height int
 	root          *node
+	MinX		  int
+	MinY		  int
 }
 
 // node représente un nœud d'arbre quaternaire. Les champs sont :

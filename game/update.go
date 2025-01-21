@@ -1,6 +1,7 @@
 package game
 
 import (
+	"fmt"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"gitlab.univ-nantes.fr/jezequel-l/quadtree/configuration"
@@ -91,8 +92,32 @@ func (g *Game) Update() error {
 		g.floor.Bloquage(g.character.X, g.character.Y)
 	}
 
+	//Extention Monde infinie
+	//ne s'active que si les extentions Camera bloqué et Terre Ronde ne sont pas actives
+	if len(configuration.Global.InfinitRandom) == 2 && configuration.Global.CamBloque != 1 && configuration.Global.RoundEarth != 1 && configuration.Global.Zoom == 0 {
+
+		//detecte si la caméra sort de la zone déjà généré. 0 si rien à générer
+		verif := g.detect_generation()
+
+		//fmt.Println(verif)
+
+		if verif != 0 {
+
+			g.lance_generation(verif)
+		}
+	}
+
 	g.camera.Update(g.character.X - g.floor.DecalX, g.character.Y - g.floor.DecalY)
 	g.floor.Update(g.camera.X, g.camera.Y)
+
+	//permet l'affichage d'inforamtion sur les quadtree, utilent pour le codage.
+	//g.floor.QuadtreeContent.Affiche_info()
+	
+	//permet d'obtenir le type de sol sur lequel qe trouve le joueur en appuyant sur o
+	if inpututil.IsKeyJustPressed(ebiten.KeyO) {
+
+		fmt.Println(g.floor.QuadtreeContent.ValeurQuad(g.character.X, g.character.Y))
+	}
 	
 	return nil
 }
